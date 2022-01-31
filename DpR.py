@@ -43,11 +43,11 @@ def get_skyline(buildings):
 mylist = [[2, 9, 10], [3, 7, 15], [5, 12, 12], [15, 20, 10], [19, 24, 8]]
 
 
-def algo_force_brute_time(buildings):
+def algo_DPR_time(buildings):
     start = time.time()
     print(get_skyline(buildings))
     end = time.time()
     print("Execution time for algo DPR is: " + str((end - start)))
 
 
-algo_force_brute_time(mylist)
+algo_DPR_time(mylist)
