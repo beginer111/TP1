@@ -1,9 +1,8 @@
+#!/usr/bin/env python3
+
 # This code is inspired by :
 # https://www.programcreek.com/python/?CodeExample=get+skyline
 # https://www.learnbay.io/the-skyline-problem/
-import time
-
-from typing import List
 
 
 def merge(left, right):
@@ -29,25 +28,13 @@ def merge(left, right):
     return result
 
 
-def get_skyline(buildings):
+def algo_recursif(buildings):
     if not buildings:
         return []
     if len(buildings) == 1:
         return [[buildings[0][0], buildings[0][2]], [buildings[0][1], 0]]
 
-    left = get_skyline(buildings[:(len(buildings) // 2)])
-    right = get_skyline(buildings[(len(buildings) // 2):])
+    left = algo_recursif(buildings[:(len(buildings) // 2)])
+    right = algo_recursif(buildings[(len(buildings) // 2):])
     return merge(left, right)
 
-
-mylist = [[2, 9, 10], [3, 7, 15], [5, 12, 12], [15, 20, 10], [19, 24, 8]]
-
-
-def algo_DPR_time(buildings):
-    start = time.time()
-    print(get_skyline(buildings))
-    end = time.time()
-    print("Execution time for algo DPR is: " + str((end - start)))
-
-
-algo_DPR_time(mylist)
